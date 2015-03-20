@@ -1,6 +1,7 @@
 CFLAGS= -O2 
 
 test: bst.test
+	./*.test
 
 clean: clean.test
 
