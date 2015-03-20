@@ -119,7 +119,7 @@ public:
 
   bool remove(BSTNode<T>* nodePtr)
   {
-    assert(nodePtr != nullptr);
+    if (nodePtr == nullptr) return false;
 
     // Do not have any child
     if (nodePtr->left == nullptr && nodePtr->right == nullptr) {
@@ -143,6 +143,9 @@ public:
       // have two children
       if (nodePtr->left != nullptr && nodePtr->right != nullptr) {
         BSTNode<T>* min_node = find_min(nodePtr); // Find minimum value
+
+				if (min_node == nullptr) return false; // This is unlikely to happen
+
         nodePtr->data = min_node->data; // Replace value by min_node
         return remove(min_node); // remove original node
 
@@ -185,6 +188,8 @@ private:
   //\param nodePtr root of subtree will search on
   BSTNode<T>* find_min(BSTNode<T>* nodePtr)
   {
+		if(nodePtr == nullptr) return nullptr;
+
     if (nodePtr->left != nullptr) { // has lower value in this tree
       return find_min(nodePtr->left);
     } else { // nodePtr is the smallest one, return it
