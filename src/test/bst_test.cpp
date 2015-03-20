@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #define CATCH_CONFIG_CPP11_NULLPTR
-#include "./lib/catch.hpp"
-#include "./lib/bst.h"
+#include "../lib/catch.hpp"
+#include "../lib/bst.h"
 
 TEST_CASE( "Empty", "[BSTree.empty]" )
 {

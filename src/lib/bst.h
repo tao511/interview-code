@@ -1,5 +1,5 @@
-#ifndef __INTERVIEW_BOOK_BST_H_
-#define __INTERVIEW_BOOK_BST_H_
+#ifndef __INTERVIEW_BOOK_BST_H__
+#define __INTERVIEW_BOOK_BST_H__
 
 template<typename T>
 /*! \brief Node structure of BST
@@ -142,7 +142,8 @@ public:
 
       // have two children
       if (nodePtr->left != nullptr && nodePtr->right != nullptr) {
-        BSTNode<T>* min_node = find_min(nodePtr); // Find minimum value
+				// Find minimum value from right subtree, that equals to find successor to target
+        BSTNode<T>* min_node = find_min(nodePtr->right); 
 
 				if (min_node == nullptr) return false; // This is unlikely to happen
 
