@@ -2,7 +2,6 @@
 #define __INTERVIEW_SORT_H__
 
 #include <vector>
-#include <iostream>
 
 template <typename T>
 /**

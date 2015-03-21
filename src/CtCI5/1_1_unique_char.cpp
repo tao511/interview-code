@@ -2,7 +2,6 @@
 #define SOLUTION_UNIQUE_STR_CPP
 
 #include <string>
-#include <iostream>
 
 size_t _partition(std::string& str, size_t i, size_t j) {
 	size_t low = i;
