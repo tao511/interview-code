@@ -61,4 +61,31 @@ bool isUnique(std::string str) {
 
 }
 
+bool isUniqueV2(std::string str) {
+	// Solution 2: Create an array and check if a character exists
+	
+	bool charTable[256] = {false};
+
+	for(size_t i = 0; i < str.length(); i++) {
+		if (charTable[str[i]]) return false;
+		charTable[str[i]] = true;
+	}
+
+	return true;
+
+}
+
+bool isUniqueV3(std::string str) {
+	// Solution 3: Create an integer array to store character table
+	
+	uint32_t charTable[8] = {0};
+	for(size_t i = 0; i < str.length(); i++) {
+		uint8_t pos = str[i] / 32;
+		uint32_t val = 1 << (str[i] % 32);
+		if ((charTable[pos] & val) == val) return false; // bit ops have lower precedence than comparsion
+		charTable[pos] |= val;
+	}
+	return true;
+}
+
 #endif

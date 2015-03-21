@@ -1,10 +1,10 @@
-CFLAGS= -O2 
+CFLAGS=  
 
 test: bst.test sort.test 1.1.test
 
 clean: clean.test 
 
-clean.test:	bst.clean sort.clean
+clean.test:	bst.clean sort.clean 1.1.clean
 
 # Data structures and algorithms
 

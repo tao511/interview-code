@@ -8,15 +8,21 @@ TEST_CASE( "Check if a string contains only unique characters", "[isUnique]" )
 	SECTION( "Empty String" ) {
 		std::string str = "";
 		REQUIRE( isUnique(str) == true );
+		REQUIRE( isUniqueV2(str) == true);
+		REQUIRE( isUniqueV3(str) == true);
 	}
 
 	SECTION( "Unique String" ) {
 		std::string str = "abcdefg\n";
 		REQUIRE( isUnique(str) == true);
+		REQUIRE( isUniqueV2(str) == true );
+		REQUIRE( isUniqueV3(str) == true );
 	}
 
 	SECTION( "String with duplicate values" ) {
 		std::string str = "abcde\nfghi\n";
 		REQUIRE( isUnique(str) == false );
+		REQUIRE( isUniqueV2(str) == false );
+		REQUIRE( isUniqueV3(str) == false );
 	}
 }
