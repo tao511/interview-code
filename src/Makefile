@@ -1,10 +1,10 @@
 CFLAGS=  
 
-test: bst.test sort.test 1.1.test
+test: bst.test sort.test 1.1.test 1.2.test
 
 clean: clean.test 
 
-clean.test:	bst.clean sort.clean 1.1.clean
+clean.test:	bst.clean sort.clean 1.1.clean 1.2.clean
 
 # Data structures and algorithms
 
@@ -24,9 +24,16 @@ sort.clean:
 
 # Cracking the coding interview v5
 
-1.1.test: ./CtCI5/1_1_unique_char.cpp
+1.1.test: ./CtCI5/1_1_unique_char.cpp ./test/1_1_test.cpp
 	g++ ./test/1_1_test.cpp ${CFLAGS} -o $@
 	./$@
 
 1.1.clean:
 	rm 1.1.test
+
+1.2.test: ./CtCI5/1_2_reverse_char_string.cpp ./test/1_2_test.cpp
+	g++ ./test/1_2_test.cpp ${CFLAGS} -o $@
+	./$@
+
+1.2.clean:
+	rm 1.2.test
