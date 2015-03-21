@@ -27,3 +27,6 @@
 *.out
 *.app
 *.test
+
+# Vim temporary files
+*.swp
