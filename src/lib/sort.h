@@ -62,4 +62,63 @@ void quickSort(std::vector<T>& v, size_t i, size_t j)
   quickSort(v, pivotPos, j);
 }
 
+template <typename T>
+/**
+ * Bottom-up heapify
+ * For array with index starting at 0,
+ * node x's children are: 2(x-1) and 2(x-1) + 1
+ *					parent is: (x-1) / 2
+ */
+void swim(std::vector<T>& v, size_t pos)
+{
+}
+
+template <typename T>
+/**
+ * Top-down heapify
+ * For array with index starting at 0,
+ * node x's children are: 2x + 1 and 2x + 2 
+ *					parent is: (x-1) / 2
+ */
+void sink(std::vector<T>& v, size_t pos, size_t highBound)
+{
+	while(2 * pos + 1 < highBound) { // check if left child is in range
+		size_t rightChildPos = 2 * pos + 1;
+		// Choose the largest one
+		if (rightChildPos + 1 < highBound &&
+			v[rightChildPos] < v[rightChildPos+1]){
+			rightChildPos++;
+		}
+		if(v[pos] < v[rightChildPos]){ // parent is less than children
+			swap(v, pos, rightChildPos); // switch and check subheap
+			pos = rightChildPos;
+		} else { // if this subheap is valid, exit
+			break;
+		}
+	}
+}
+
+template <typename T>
+/**
+ * Heap Sort
+ * Frist heapify every sub-heap, and then repeat
+ * removing maximum; re-heapify
+ */
+void heapSort(std::vector<T>& v)
+{
+	size_t highBound = v.size();
+	// heapify every sub-heap 
+	for(size_t pos = highBound/2 - 1; ; pos--) {
+		sink(v, pos, highBound);
+		if (pos == 0) break; // size_t always larger than 0
+	}
+
+	// Actual sorting
+	while (highBound > 1) { // we do not need to move last element
+		swap(v, 0, --highBound); // remove max
+		sink(v, 0, highBound); // heapify [0, highBound]
+	}
+
+}
+
 #endif
