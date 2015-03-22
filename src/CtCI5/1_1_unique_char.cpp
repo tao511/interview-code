@@ -40,23 +40,17 @@ void _quickSort(std::string& str, size_t i, size_t j) {
  * Detect if all characters in str is unique or not
  */
 bool isUnique(std::string str) {
-	// Solution 1: Sort it and then check if str[i-1] str[i] has the same value
+	// Solution 1: Sort it and then check if str[i-1] str[i] have the same value
 
-	//if (str.length() == 0) return true; // Must deal with length() == 0 because
-																			// length() is size_t, length() - 1 equals
-																			// to a large number instead of -1
-	
 	_quickSort(str, 0, str.length() - 1);
 
 
-	bool isUniq = true;
-
 	for (int i = 1; i < str.length(); i++) { // compare str[i] and str[i-1] to avoid
 																					 // length() - 1 when length() == 0
-		if (str[i] == str[i-1]) isUniq = false;
+		if (str[i] == str[i-1]) return false;
 	}
 	
-	return isUniq;
+	return true;
 
 }
 
