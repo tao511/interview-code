@@ -1,10 +1,10 @@
 CFLAGS=  
 
-test: bst.test sort.test 1.1.test 1.2.test
+test: bst.test sort.test 1.1.test 1.2.test 1.3.test
 
 clean: clean.test 
 
-clean.test:	bst.clean sort.clean 1.1.clean 1.2.clean
+clean.test:	bst.clean sort.clean 1.1.clean 1.2.clean 1.3.clean
 
 # Data structures and algorithms
 
@@ -37,3 +37,10 @@ sort.clean:
 
 1.2.clean:
 	rm 1.2.test
+
+1.3.test: ./CtCI5/1_3_string_permutation.cpp ./test/1_3_test.cpp
+	g++ ./test/1_3_test.cpp ${CFLAGS} -o $@
+	./$@
+
+1.3.clean:
+	rm 1.3.test
