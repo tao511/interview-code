@@ -14,6 +14,11 @@ TEST_CASE( "QuickSort", "[quickSort]")
   vec.push_back(2);
   vec.push_back(5);
 
+	SECTION( "Empty vector" ){
+		std::vector<int> vec = std::vector<int>();
+		quickSort(vec, 0, 0);
+	}
+
   SECTION( "Partition" ) {
     REQUIRE( partition(vec, 0, vec.size() - 1) == 5 );
 		REQUIRE( vec[0] == 1 );
@@ -47,6 +52,11 @@ TEST_CASE( "HeapSort", "[heapSort]" )
   vec.push_back(2);
   vec.push_back(2);
   vec.push_back(5);
+
+	SECTION( "Empty vector" ){
+		std::vector<int> vec = std::vector<int>();
+		heapSort(vec);
+	}
 
 	SECTION( "Sort" ) {
 		heapSort(vec);

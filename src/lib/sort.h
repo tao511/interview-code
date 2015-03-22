@@ -55,7 +55,7 @@ template <typename T>
  */
 void quickSort(std::vector<T>& v, size_t i, size_t j)
 {
-  if (v.size() <= j || i >= j) return;
+  if (v.size() <= 1 || v.size() <= j || i >= j) return;
 
   size_t pivotPos = partition(v, i, j);
   quickSort(v, i, pivotPos - 1);
@@ -106,6 +106,8 @@ template <typename T>
  */
 void heapSort(std::vector<T>& v)
 {
+	if (v.size() <= 1) return;
+
 	size_t highBound = v.size();
 	// heapify every sub-heap 
 	for(size_t pos = highBound/2 - 1; ; pos--) {
