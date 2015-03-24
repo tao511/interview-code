@@ -1,10 +1,10 @@
 CFLAGS=  
 
-test: bst.test sort.test 1.1.test 1.2.test 1.3.test 1.4.test 1.5.test 1.6.test 1.7.test
+test: bst.test sort.test 1.1.test 1.2.test 1.3.test 1.4.test 1.5.test 1.6.test 1.7.test 1.8.test
 
 clean: clean.test 
 
-clean.test:	bst.clean sort.clean 1.1.clean 1.2.clean 1.3.clean 1.4.clean 1.5.clean 1.6.clean 1.7.clean
+clean.test:	bst.clean sort.clean 1.1.clean 1.2.clean 1.3.clean 1.4.clean 1.5.clean 1.6.clean 1.7.clean 1.8.clean
 
 # Data structures and algorithms
 
@@ -72,3 +72,10 @@ sort.clean:
 	
 1.7.clean:
 	rm 1.7.test
+
+1.8.test: ./CtCI5/1_8_string_rotation.cpp ./test/1_8_test.cpp
+	g++ ./test/1_8_test.cpp ${CFLAGS} -o $@
+	./$@
+
+1.8.clean:
+	rm 1.8.test
