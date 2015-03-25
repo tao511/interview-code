@@ -1,10 +1,10 @@
 CFLAGS=  
 
-test: bst.test sort.test 1.1.test 1.2.test 1.3.test 1.4.test 1.5.test 1.6.test 1.7.test 1.8.test 2.1.test 2.2.test
+test: bst.test sort.test 1.1.test 1.2.test 1.3.test 1.4.test 1.5.test 1.6.test 1.7.test 1.8.test 2.1.test 2.2.test 2.3.test
 
 clean: clean.test 
 
-clean.test:	bst.clean sort.clean 1.1.clean 1.2.clean 1.3.clean 1.4.clean 1.5.clean 1.6.clean 1.7.clean 1.8.clean 2.1.clean 2.2.clean
+clean.test:	bst.clean sort.clean 1.1.clean 1.2.clean 1.3.clean 1.4.clean 1.5.clean 1.6.clean 1.7.clean 1.8.clean 2.1.clean 2.2.clean 2.3.clean
 
 # Data structures and algorithms
 
@@ -93,3 +93,10 @@ sort.clean:
 
 2.2.clean:
 	rm 2.2.test
+
+2.3.test: ./CtCI5/2_3_delete_middle_node.cpp ./test/2_3_test.cpp
+	g++ ./test/2_3_test.cpp ${CFLAGS} -o $@
+	./$@
+
+2.3.clean:
+	rm 2.3.test
