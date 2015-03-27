@@ -8,8 +8,12 @@ TEST_CASE( "Sum linked numbers" )
 	SECTION( "No loop" ) {
 		node<int>* head = nullptr;
 		node<int>* head2 = new node<int>(1);
+
 		REQUIRE(findCycleHead(head) == nullptr);
 		REQUIRE(findCycleHead(head2) == nullptr);
+
+		REQUIRE(findCycleHeadNaive(head) == nullptr);
+		REQUIRE(findCycleHeadNaive(head2) == nullptr);
 	}
 
 	SECTION( "Test result" ) {
@@ -22,6 +26,9 @@ TEST_CASE( "Sum linked numbers" )
 		head2->next = new node<int>(2);
 		head2->next->next = new node<int>(3);
 		head2->next->next->next = head2;
+
+		REQUIRE(findCycleHeadNaive(head)->data == 2);
+		REQUIRE(findCycleHeadNaive(head2)->data == 1);
 
 		REQUIRE(findCycleHead(head)->data == 2);
 		REQUIRE(findCycleHead(head2)->data == 1);
