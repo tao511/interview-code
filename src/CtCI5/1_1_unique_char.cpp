@@ -36,8 +36,13 @@ void _quickSort(std::string& str, size_t i, size_t j) {
 	_quickSort(str, pivotPos, j);
 }
 
-/*
- * Detect if all characters in str is unique or not
+/**
+ * Sort given string by each character, traverse through new string and check
+ * if pos[i] == p[i-1].
+ *
+ * Time complexity: O(nlogn)
+ * Space complexity: O(n) if we need keep the original data
+ *
  */
 bool isUnique(std::string str) {
 	// Solution 1: Sort it and then check if str[i-1] str[i] have the same value
@@ -54,6 +59,14 @@ bool isUnique(std::string str) {
 
 }
 
+/**
+ * Suppose the data range is 0~256, then we create 256 bins and do bin sort.
+ * If any of the bins has more than one element, then this is not a unique string
+ * 
+ * Time complexity: O(n)
+ * Space complexity: O(c) c is the size of character range 
+ * 
+ */
 bool isUniqueV2(std::string str) {
 	// Solution 2: Create an array and check if a character exists
 	
@@ -68,6 +81,13 @@ bool isUniqueV2(std::string str) {
 
 }
 
+/**
+ * Bin sort with bit vector.
+ * 
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ *
+ */
 bool isUniqueV3(std::string str) {
 	// Solution 3: Create an integer array to store character table
 	
