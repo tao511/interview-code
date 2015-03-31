@@ -11,9 +11,16 @@ TEST_CASE( "Reverse a null-terminated string" )
 		REQUIRE( str[0] == '\0' );
 	}
 
-	SECTION( "Normal STring" ) {
+	SECTION( "String with odd number of characters" ) {
 		char str[] = "abcde";
 		reverse(str);
 		REQUIRE( strcmp(str,"edcba") == 0 );
 	}
+
+	SECTION( "String with even number of characters" ) {
+		char str[] = "abde";
+		reverse(str);
+		REQUIRE( strcmp(str,"edba") == 0 );
+	}
+
 }
