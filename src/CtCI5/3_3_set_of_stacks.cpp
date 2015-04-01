@@ -88,7 +88,6 @@ public:
 
 		for(int i = 0; i < stackNum; i++) {
 			if (stacks[i]->size < stackCapacity) {
-				std::cout << "push into " << i << std::endl;
 				if (stacks[i]->push(val)) {
 					size++;
 					return true;
@@ -97,7 +96,10 @@ public:
 				}
 			}
 		}
-		return false;
+		// If there is not enough space, enlarge it 
+		stacks[stackNum++] = new FixStack(stackCapacity);
+		// And then put it into that stack
+		return stacks[stackNum - 1]->push(val);
 	}
 
 	/**
@@ -145,6 +147,7 @@ public:
 		if (stackNum < i) return false;
 		if (stacks[i]->pop()) {
 			size--;
+
 			return true;
 		}
 		
