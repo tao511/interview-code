@@ -1,6 +1,12 @@
 #ifndef INTERVIEW_STRING_PERMUTATION
 #define INTERVIEW_STRING_PERMUTATION
 
+/**
+ * Use bin sort to detect if there are unseen characters in target.
+ *
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ */
 bool isStringPermutation(std::string src, std::string target)
 {
   // Solution 1: If we assume this is an ASCII string, we create a set
@@ -70,6 +76,12 @@ void _heapSort(std::string& str)
 	}
 }
 
+/**
+ * Use heap sort and check if two strings are identical
+ * 
+ * Time complexity: O(nlogn)
+ * Space complexity: O(n)
+ */
 bool isStringPermutationV2(std::string src, std::string target)
 {
   // Solution 2: Sort two strings, compare if they are the same
