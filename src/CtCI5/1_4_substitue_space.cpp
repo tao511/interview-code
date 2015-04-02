@@ -12,6 +12,9 @@
  * If space is met, move "%20" to A, then discard that space character.
  *
  * Keep doing this until you reach the start of your old string.
+ *
+ * Time complexity: O(n)
+ * Space complexity: O(1)
  * 
  * @param len length of string (index will be [0, len - 1])
  */
