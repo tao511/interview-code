@@ -2,7 +2,17 @@
 #define INTERVIEW_SUBSTITUTE_SPACE
 
 /**
- * Replace space by %20
+ * Replace space by %20.
+ * 
+ * First calculate the number of spaces, then set a pointer A
+ * at the end of your new string. Then use another pointer B 
+ * to reversely traverse your old string, move the non-space 
+ * character that B meet to A, and then move A and B accordingly.
+ *
+ * If space is met, move "%20" to A, then discard that space character.
+ *
+ * Keep doing this until you reach the start of your old string.
+ * 
  * @param len length of string (index will be [0, len - 1])
  */
 void substituteSpace(char* str, size_t len) {
