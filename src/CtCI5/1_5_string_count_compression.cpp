@@ -4,6 +4,18 @@
 #include <string>
 #include <sstream>
 
+/**
+ * Compress a string.
+ *
+ * Traverse through this string, if reach a character
+ * that is differ from its previous character, store
+ * previous character and its count, and put that new
+ * character into buffer, set counter to 1.
+ * 
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ *
+ */
 std::string stringCompression(std::string str) 
 {
 	// Traverse through str, and count appearance
