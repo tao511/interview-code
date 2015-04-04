@@ -56,6 +56,10 @@
  *  (i,j) => (j, n-i) => (n-i,n-j) => (n-j,i) => (i,j)
  *
  *  REMEMBER, `n` here is the maximum index, NOT THE SIZE
+ *
+ *	Time complexity: O(m) m is the number of elements in matrix
+ *	Space complexity: O(1) in place algorithm
+ *
  */
 void rotation(int n, int m[][4])
 {
