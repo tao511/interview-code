@@ -1,11 +1,17 @@
 #ifndef INTERVIEW_SET_ZERO
 #define INTERVIEW_SET_ZERO
 
+/**
+ * Set entire row/column to zero if there is a zero.
+ *
+ * Time complexity: O(m*n)
+ * Space complexity: O(m+n)
+ */
 void setZero(int **matrix, size_t m, size_t n) 
 {
 	// If martix[i][j] = 0, then martix[i][] = 0 and matrix[][j] = 0
 	
-	// We construct two indicator, indicating if a row/col is already set to zero
+	// We construct two indicators to log if a row/col is already set to zero
 
 	bool isZeroRow[m]; // One can not initialize it by = {true};
 	bool isZeroCol[n]; // because the length of it is variable-based
