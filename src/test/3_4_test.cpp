@@ -4,9 +4,24 @@
 #include "../CtCI5/3_4_hanoi_stack.cpp"
 #include <climits>
 
+TEST_CASE( "Stack" ) {
+	SECTION( "test" ) {
+		stack s;
+		for(int i = 1; i <= 10; i++) {
+			s.push(i);
+			REQUIRE( s.peek() == i );
+		}
+		for(int i = 10; i != 1; i--) {
+			REQUIRE( s.peek() == i );
+			s.pop();
+			REQUIRE( s.size() == i - 1 );
+		}
+	}
+}
+
 TEST_CASE( "Hanoi Stack" )
 {
-	int HANOI_SIZE = 3;
+	int HANOI_SIZE = 20;
 
 	SECTION( "Hanoi" ) {
 

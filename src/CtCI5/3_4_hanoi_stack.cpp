@@ -10,7 +10,7 @@ class stack {
 
 	void enlarge() {
 		if(_capacity == _size) {
-			int* tmp = new int[_capacity * 2];
+			int* tmp = new int[_capacity * 2 + 1];
 			for(int i = 0; i <= _capacity; i++) { // Copy all data from 1 to capacity
 				tmp[i] = _data[i];
 			}
