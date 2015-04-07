@@ -22,7 +22,9 @@ public:
 };
 
 template<typename T>
-/*! \brief Binary Search Tree
+/** 
+ * Binary Search Tree.
+ * 
  * Known issues of this implementaion:
  * 1) This BST does not support duplicate values, namely each value
  *     in the tree is unique.
