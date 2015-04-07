@@ -10,6 +10,22 @@ class node {
 		node(T d): data(d), next(nullptr) {}
 };
 
+/**
+ * Find kth to last elements in a linked list.
+ *
+ * First we need to know if there are k elements in the list,
+ * if not return nothing.
+ *
+ * After we find the kth element from the beginning, we create
+ * a new pointer pointing at the head, so the distance between
+ * old pointer and new pointer is `k`. Then we move them 
+ * simultaneously until the old pointer reaches the end of the list.
+ * Then we get the last k elements in the list.
+ * 
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ *
+ */
 template <typename T>
 node<T>* kthToLast(node<T>* head, size_t k)
 {
