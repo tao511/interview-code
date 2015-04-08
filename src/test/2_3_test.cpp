@@ -3,6 +3,19 @@
 #include "../lib/catch.hpp"
 #include "../CtCI5/2_3_delete_middle_node.cpp"
 
+TEST_CASE( "Test delete middle element" ) {
+
+	node<int>* head = new node<int>(0);
+	head->next = new node<int>(1);
+	head->next->next = new node<int>(2);
+
+	deleteMiddleNodeGivenMiddleNode(head->next);
+	
+	REQUIRE( head->data == 0 );
+	REQUIRE( head->next->data == 2 );
+	REQUIRE( head->next->next == nullptr );
+}
+
 TEST_CASE( "Test delete middle element in a string" )
 {
 	SECTION( "list with less than 3 elements" ) {

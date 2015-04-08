@@ -10,6 +10,35 @@ public:
 	node(T init_data): data(init_data), next(nullptr){}
 };
 
+/**
+ * Delete middle element in a linkedlist if given only access
+ * to that node.
+ *
+ * Copy data from its decendent, and delete its decedent.
+ * 
+ * Time complexity: O(1)
+ * Space complexity: O(1)
+ */
+template <typename T>
+void deleteMiddleNodeGivenMiddleNode(node<T>* mid) {
+	if(mid == nullptr || mid->next == nullptr) return;
+	node<T> *next = mid->next;
+	mid->data = next->data;
+	mid->next = next->next;
+	delete next;
+}
+
+/**
+ * Delete middle element in a linkedlist if given access to head.
+ *
+ * Use two pointers, one moves 1 step another one moves 2 step per iteration.
+ * When fast pointer reaches the end, then the slow pointer is pointing to 
+ * the middle element.
+ * 
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ *
+ */
 template <typename T>
 void deleteMiddleNode(node<T>* head) {
 	// This is a typical runner pointer problem
