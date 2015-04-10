@@ -10,6 +10,21 @@ public:
   node(int init_data): data(init_data), next(nullptr) {}
 };
 
+/**
+ * Sum linked digits together.
+ *
+ * When digits are stored reversely, traverse through 
+ * the list and sum all numbers together by p[i] * 10^(i),
+ * where i is the index in the linked list, starting at 0.
+ * 
+ * When digits are stored sequentially, traverse once to 
+ * determine the length L, then add all numbers together 
+ * by p[i] * 10^(L-i), where L is the length of the list
+ * and i is the index starting at 0.
+ * 
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ */
 int sumListNumber(node* leftPtr, node* rightPtr, bool isReversed)
 {
   // for reversed order
