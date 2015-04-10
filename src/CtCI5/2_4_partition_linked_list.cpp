@@ -38,7 +38,7 @@ node<T>* partitionLinkedList(node<T>* head, T x) {
 		ptr = nextPtr;
 	}
 
-	// Combine three liss into one
+	// Combine three lists into one
 	
 	ptr = lessPtr;
 	while (ptr != nullptr && ptr->next != nullptr) {
