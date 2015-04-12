@@ -17,6 +17,20 @@ node* swap(node* left, node* right, node* stop) {
 	return swap(right, tmp, stop);
 }
 
+/**
+ * Check if a singly linked list is palindrom.
+ *
+ * First find out the node right in the middle using
+ * slow and fast pointers.
+ *
+ * Then revrese left/right part of the list and compare them
+ * to see if it is a palindrom or not.
+ * 
+ * Then reconstruct the list and return the result.
+ *
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ */
 bool isPalindrom(node* head) {
 	// Step 1. Find mid pointer
 	

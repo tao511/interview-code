@@ -28,6 +28,22 @@ node<T>* findCycleHeadNaive(node<T>* head) {
 	
 }
 
+/**
+ * Find the starting point of a loop in a singly linked list.
+ *
+ * First use two pointers, one moves 1 step every time and the other
+ * one moves 2 steps per time. Then when the slow pointer reaches 
+ * the starting point of the loop, the fast pointer is at k%m position in
+ * the loop (where k is the distance between the start of the list and the start
+ * of the loop, and m is the length of the loop). When slow and fast pointers meet,
+ * it is at m - k%m position. Then we need move the slow pointer back to the
+ * head, and when these two pointers meet again, it is the starting point
+ * of that loop.
+ *
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ *
+ */
 template <typename T>
 node<T>* findCycleHead(node<T>* head) {
 	//first, construct a quick pointer and slow pointer and make them meet
