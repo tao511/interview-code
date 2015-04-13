@@ -16,6 +16,15 @@ TEST_CASE( "Find routine on graph" )
 
 		REQUIRE( digraph.hasRoutine(1,5) == true );
 		REQUIRE( digraph.hasRoutine(3,5) == false );
+
+		std::vector<int> path = digraph.findRoutine(1,5);
+
+		REQUIRE( path.size() == 3 );
+
+		REQUIRE( path[0] == 1 );
+		REQUIRE( path[1] == 2 );
+		REQUIRE( path[2] == 5 );
+
 	}
 
 	SECTION( "Cyclic graph" ) {
@@ -30,5 +39,12 @@ TEST_CASE( "Find routine on graph" )
 		REQUIRE( digraph.hasRoutine(1,5) == true );
 		REQUIRE( digraph.hasRoutine(3,5) == true );
 		REQUIRE( digraph.hasRoutine(1,2) == true );
+
+		std::vector<int> path = digraph.findRoutine(3,5);
+
+		REQUIRE( path[0] == 3 );
+		REQUIRE( path[1] == 1 );
+		REQUIRE( path[2] == 2 );
+		REQUIRE( path[3] == 5 );
 	}
 }

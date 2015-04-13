@@ -57,7 +57,6 @@ public:
     std::unordered_set<int> neighbors = getLinks(src);
     for(std::unordered_set<int>::iterator it = neighbors.begin();
         it != neighbors.end(); it++) {
-      if (*it == dst) return true;
 			if (!isVisited(*it)) {
 				if (routineDFS(*it, dst)) return true;
 			}
@@ -73,6 +72,41 @@ public:
 		r = routineDFS(src, dst);
 		visited.clear();
 		return r;
+	}
+
+	bool routineDFS(int src, int dst, std::vector<int>& path)
+	{
+		if (src == dst) {
+			path.push_back(src);
+			return true;
+		}
+
+    std::unordered_set<int> neighbors = getLinks(src);
+    for(std::unordered_set<int>::iterator it = neighbors.begin();
+        it != neighbors.end(); it++) {
+			if (!isVisited(*it)) {
+				if (routineDFS(*it, dst, path)){
+					path.push_back(src);
+					return true;
+				}
+			}
+			setVisited(*it);
+    }
+		return false;
+	}
+
+	std::vector<int> findRoutine(int src, int dst) {
+		std::vector<int> path;
+		visited.clear();
+		setVisited(src);
+		routineDFS(src, dst, path);
+		visited.clear();
+		for(int i = 0; i < path.size()/2; i++) {
+			int tmp = path[i];
+			path[i] = path[path.size() - i - 1]; // index is [0, size - 1]
+			path[path.size() - i - 1] = tmp;
+		}
+		return path;
 	}
 
 };
