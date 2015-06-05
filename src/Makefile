@@ -1,6 +1,6 @@
 CFLAGS=  
 
-test: bst.test sort.test 1.1.test 1.2.test 1.3.test 1.4.test 1.5.test 1.6.test 1.7.test 1.8.test 2.1.test 2.2.test 2.3.test 2.4.test 2.5.test 2.6.test 2.7.test 3.1.test 3.2.test 3.3.test 3.4.test 3.5.test 3.6.test 3.7.test 4.1.test 4.2.test
+test: bst.test sort.test 1.1.test 1.2.test 1.3.test 1.4.test 1.5.test 1.6.test 1.7.test 1.8.test 2.1.test 2.2.test 2.3.test 2.4.test 2.5.test 2.6.test 2.7.test 3.1.test 3.2.test 3.3.test 3.4.test 3.5.test 3.6.test 3.7.test 4.1.test 4.2.test 4.3.test
 
 clean: clean.test 
 
@@ -191,3 +191,10 @@ sort.clean:
 
 4.2.clean:
 	rm 4.2.test
+
+4.3.test: ./CtCI5/4_3_array_to_bst.cpp ./test/4_3_test.cpp
+	g++ ./test/4_3_test.cpp ${CFLAGS} -o $@
+	./$@
+
+4.3.clean:
+	rm 4.3.test
