@@ -1,6 +1,6 @@
-#include <iostream>
 #ifndef INTERVIEW_ARRAY_TO_BST
 #define INTERVIEW_ARRAY_TO_BST
+#include <iostream>
 
 void constructBST(int* array, int* bst, int left, int right, int pos) {
 	int selectedPos = left + (right - left) / 2; // always floor
